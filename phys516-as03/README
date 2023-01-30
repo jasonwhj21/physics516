@@ -1,0 +1,11 @@
+This folder (phys516-as03) contains instruction and code needed to complete assignment 3
+for PHYS 516.
+
+as03.pdf: Assignment itself.
+
+mean.c: Metropolis Monte Carlo (MC) algorithm is just a fancy sample-mean MC, so we
+  use a simple sample-mean MC code, mean.c, as a starting point. Instead of a simple
+  linear-congruential recursion to generate uniform random numbers in mean.c,
+  your program (let's name it ising.c) uses the Metropolis attempt/accept procedure
+  to generate a Markov chain of nonuniform random numbers according to the Boltzmann
+  distribution.
