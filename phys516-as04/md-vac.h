@@ -64,8 +64,8 @@ double totEnergy;     /* Total energy */
 double temperature;   /* Current temperature */
 int stepCount;        /* Current time step */
 
-double v0[NMAX][3]; //Atom velocities at a time origin, {v_i(t_0)|i=0,...,nAtom}    //modified
-double vac[STEPCORR];   //velocity autocorrelation function                         //modified
-FILE *f; //f is a pointer to the file data type; we will create a file and write VAC to  //modified
+double v0[NMAX][3]; //Atom velocities at a time origin, {v_i(t_0)|i=0,...,nAtom}    //added
+double vac[STEPCORR];   //velocity autocorrelation function                         //added
+FILE *f; //f is a pointer to the file data type; we will create a file and write VAC to  //added
 /******************************************************************************/
 

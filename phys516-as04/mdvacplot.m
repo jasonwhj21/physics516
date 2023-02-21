@@ -4001,5 +4001,14 @@ Z_solid = [1.000000e+00
 1.012707e-01
 ];
 t = [0:0.005:(10-0.005)];
-
+subplot(1,2,1)
 plot(t, Z_solid)
+title("VAC of Solid State");
+xlabel('Time (s)');
+ylabel("Velocity Autocorrelation");
+
+subplot(1,2,2)
+plot(t, Z_gas)
+title('VAC of Gas State');
+xlabel('Time (s)');
+ylabel("Velocity Autocorrelation")
