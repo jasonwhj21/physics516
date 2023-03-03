@@ -13,7 +13,7 @@ void prop(double *);
 //void kin_prop(int);
 //void periodic_bc();
 void calc_energy();
-void four1(double *, unsigned long , int);
+void four1(double *, unsigned long, int);
 
 
 /* Input parameters ***********************************************************/

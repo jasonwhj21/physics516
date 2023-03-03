@@ -70,17 +70,17 @@ void init_prop() {
 		if (m < NX/2)
 			km[m] = 2.0*M_PI*m/LX;
 		else
-			km[m] = 2.0*M_PI+(m-NX)/LX;
+			km[m] = 2.0*M_PI*(m-NX)/LX;
 		double arg = -0.5*km[m]*km[m]*DT;
 		ut[2*m] = cos(arg);
 		ut[2*m+1] = sin(arg);	
 	}
 
 	/* Set up potential propagator */
-	for (i=1; i<NX; i++) {
+	for (i=0; i<NX; i++) {
 		x = dx*i;
 		/* Construct the edge potential */
-		if (i==0 || i==NX)
+		if (i==0 || i==NX-1 )
 			v[i] = EH;
 		/* Construct the barrier potential */
 		else if (0.5*(LX-BW)<x && x<0.5*(LX+BW))
@@ -89,7 +89,7 @@ void init_prop() {
 			v[i] = 0.0;
 		/* Half-step potential propagator */
 		uv[2*i  ] = cos(-0.5*DT*v[i]);
-		uv[2*1+1] = sin(-0.5*DT*v[i]);
+		uv[2*i+1] = sin(-0.5*DT*v[i]);
 	}
 }
 
@@ -176,6 +176,9 @@ void calc_energy() {
 	for (sx=0; sx<NX; sx++)
 		ekin += 0.5*km[sx]*km[sx]*(psi[2*sx]*psi[2*sx]+psi[2*sx+1]*psi[2*sx+1]);
 	ekin *= dx*NX;
+
+	/* Fourier transform */
+	four1(psi-1, (unsigned long) NX, 1);
 
 	/* Potential energy */
 	epot = 0.0;
